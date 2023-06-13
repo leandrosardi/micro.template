@@ -24,6 +24,9 @@ require parser.value('config')
 require 'version'
 DB = BlackStack::PostgreSQL::connect
 
+# load ORM
+require 'lib/skeletons'
+
 # 
 puts '
  __     __     ______     ______     __  __        __    __     ______     ______     __  __    

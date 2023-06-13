@@ -54,11 +54,6 @@ module BlackStack
             "postgresql://#{@@db_user}:#{@@db_password}@#{@@db_url}:#{@@db_port}/#{@@db_name}"
         end # connection_string
 
-        # return the connection string for a postgresql database
-        def self.connection_string_2
-            "postgresql://#{@@db_user}:#{@@db_password}@#{@@db_url}:#{@@db_port}?sslmode=verify-full&options=--cluster%3D#{@@db_cluster}"
-        end # connection_string
-
         # create database connection
         def self.connect
             Sequel.connect(BlackStack::PostgreSQL.connection_string)
@@ -70,9 +65,6 @@ module BlackStack
         end
         def self.db_port
             @@db_port
-        end
-        def self.db_cluster
-            @@db_cluster
         end
         def self.db_name
             @@db_name
@@ -123,7 +115,6 @@ module BlackStack
             # map values
             @@db_url = h[:db_url]
             @@db_port = h[:db_port].to_i
-            @@db_cluster = h[:db_cluster] # default is nil
             @@db_name = h[:db_name]
             @@db_user = h[:db_user]
             @@db_password = h[:db_password]
@@ -131,7 +122,7 @@ module BlackStack
 
         # return a postgresql uuid
         def self.guid()
-            DB['SELECT gen_random_uuid() AS id'].first[:id]
+            DB['SELECT uuid_generate_v4() AS id'].first[:id]
         end
             
         # return current datetime with format `%Y-%m-%d %H:%M:%S %Z`, using the timezone of the database (`select current_setting('TIMEZONE')`)
