@@ -38,7 +38,8 @@ module BlackStack
                 end
             end
 
-            def ingest(l=nil)
+            # check the status of the order in leadhype
+            def check(l=nil)
                 l = BlackStack::DummyLogger.new(nil) if l.nil?
                 # login LeadHype
                 email = LEADHYPE_EMAIL
@@ -83,7 +84,7 @@ module BlackStack
 
 
             # find the CSV file in the local filesystem, parse it, and create rows in the table dfyl_leadhype_row
-            def leadhype_ingest(l=nil)
+            def ingest(l=nil)
                 l = BlackStack::DummyLogger.new(nil) if l.nil?
                 tempfile = "/tmp/#{self.id.to_guid}.csv"
 

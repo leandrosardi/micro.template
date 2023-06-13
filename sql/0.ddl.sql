@@ -267,7 +267,7 @@ create index if not exists IX_leadhype_row__pushback_success on leadhype_row(pus
 
 --
 --
--- leadhype parsing columns
+-- leadhype_row - parsing columns
 --
 alter table leadhype_row add column if not exists page_number int8 null;
 alter table leadhype_row add column if not exists email1 varchar(500) null;
@@ -283,7 +283,7 @@ alter table leadhype_row add column if not exists "location" varchar(500) null;
 
 --
 --
--- leadhype verification
+-- leadhype_row - verification
 --
 alter table leadhype_row add column if not exists db_result1 int8 null;
 alter table leadhype_row add column if not exists db_result2 int8 null;
