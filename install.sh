@@ -37,18 +37,18 @@ mkdir -p ~/.postgresql
 # create the code directory
 mkdir -p ~/code
 cd ~/code
-# rename existing ~/code/mysaas to ~/code/mysaas.<timestamp>
-mv mysaas mysaas.$(date +%s)
-# clone the mysaas repo
-git clone https://github.com/leandrosardi/mysaas
-cd ~/code/mysaas
+# rename existing ~/code/micro.dfyl.appending to ~/code/micro.dfyl.appending.<timestamp>
+mv micro.dfyl.appending micro.dfyl.appending.$(date +%s)
+# clone the micro.dfyl.appending repo
+git clone https://github.comConnectionSphere/micro.dfyl.appending
+cd ~/code/micro.dfyl.appending
 # install gems
 bundler update
 # setup RUBYLIB environment variable
-export RUBYLIB=~/code/mysaas
+export RUBYLIB=~/code/micro.dfyl.appending
 # copy .postgresql file 
 # --> DEPRECATED (leandrosardi/cs#64)
-cp -p ~/code/mysaas/.postgresql/root.crt ~/.postgresql
+cp -p ~/code/micro.dfyl.appending/.postgresql/root.crt ~/.postgresql
 # allow non-root user to run nginx and write the log files - error.log is written here
 # --> DEPRECATED (leandrosardi/cs#64)
 sudo touch /var/log/nginx/access.log
@@ -76,7 +76,7 @@ sudo chmod ugo+rwx /run/nginx.pid
 sudo setcap 'cap_net_bind_service=+ep' `which nginx`
 # run nginx if you want to enable HTTPS
 # --> DEPRECATED (leandrosardi/cs#64)
-#nginx -c ~/code/mysaas/nginx/desa.conf > /dev/null 2>&1 &
+#nginx -c ~/code/micro.dfyl.appending/nginx/desa.conf > /dev/null 2>&1 &
 # run sinatra webserver listening port 3000
 # --> DEPRECATED (leandrosardi/cs#64)
 #ruby app.rb port=3000 config=config.template env=desa

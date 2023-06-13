@@ -1,6 +1,6 @@
 **>> THIS PROJECT IS UNDER CONSTRUCTION <<**
 
-![MySaaS Micro-Services Logo](/docu/logo-100.png)
+![MySaaS Micro-Services Logo](/public/core/images/micro/logo-100.png)
 
 # DFY-Leads Appending Micro-Service
 
@@ -18,7 +18,7 @@ But as running too many backend-process, including a [Pampa dispatcher and many 
 
 Even if the [Pampa](https://github.com/leandrosardi/pampa) architecture can scale with no limit when running over a distributed database like [CockroachDB](https://www.cockroachlabs.com/), it becomes very expensive.
 
-![CockroachDB Expenses](/docu/crdb1.png)
+![CockroachDB Expenses](/public/core/images/micro/crdb1.png)
 
 ### The Solution
 
@@ -88,7 +88,7 @@ git clone https://github.com/ConnectionSphere/micro.dfyl.appedning
 
 
 
-### 2.6. Database Schema
+### 3.3. Database Schema
 
 ```bash
 cd ~/code/micro.dfyl.appending
@@ -96,5 +96,10 @@ ruby install.rb
 ```
 
 ## Running Micro-Service
+
+```bash
+cd ~/code/micro.dfyl.appending
+ruby start.rb
+```
 
 ## Access Ponts

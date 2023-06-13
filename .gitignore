@@ -1,0 +1,33 @@
+# ignore any output file
+*.out
+
+# ignore the .sandbox file.
+.sandbox
+
+# ignore ngrok command
+ngrok
+
+# igonore the backups of the configuration files
+config.*.rb
+config.prod*.rb
+config.backup*.rb
+!config.template.rb
+
+# ignore lock files
+*.lock
+
+# ignore log files
+*.log
+*.log.data
+
+# ignore .project file created by IDE
+.project
+
+# ignore .maintenance file used to turn the app unavailable
+.maintenance
+
+# backup files
+*.bak 
+
+# PID files
+*.pid
