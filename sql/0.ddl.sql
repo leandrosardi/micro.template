@@ -265,3 +265,25 @@ create index if not exists IX_leadhype_row__pushback_success__pushback_reservati
 -- def error_descriptions(max_tasks_to_show=25)
 create index if not exists IX_leadhype_row__pushback_success on leadhype_row(pushback_success);
 
+--
+--
+-- leadhype parsing columns
+--
+alter table leadhype_row add column if not exists page_number int8 null;
+alter table leadhype_row add column if not exists email1 varchar(500) null;
+alter table leadhype_row add column if not exists email2 varchar(500) null;
+alter table leadhype_row add column if not exists first_name varchar(500) null;
+alter table leadhype_row add column if not exists middle_name varchar(500) null;
+alter table leadhype_row add column if not exists last_name varchar(500) null;
+alter table leadhype_row add column if not exists linkedin_url varchar(8000) null;
+alter table leadhype_row add column if not exists job_position varchar(500) null;
+alter table leadhype_row add column if not exists company_name varchar(500) null;
+alter table leadhype_row add column if not exists company_url varchar(8000) null;
+alter table leadhype_row add column if not exists "location" varchar(500) null;
+
+--
+--
+-- leadhype verification
+--
+alter table leadhype_row add column if not exists db_result1 int8 null;
+alter table leadhype_row add column if not exists db_result2 int8 null;
