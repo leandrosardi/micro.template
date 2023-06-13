@@ -7,8 +7,10 @@
 		
 		<div class='span3 text-left'>
 			<b><i class='icon-question-sign'></i> Help</b><br/>
+			<i>(Pending)</i>
+			<!--
 			<a href='#' target='_window'>Any Link Here</a><br/>
-			<br/>
+			-->
 		</div>
 
 		<div class='span3 text-left'>
@@ -26,13 +28,11 @@
 	<br/>
 	<br/>
 
-	<b><%=APP_NAME%></b>, version <a href='https://github.com/leandrosardi/mysaas' target='_window'><%=WORKMESH_VERSION.to_s%></a><br/>
-	<!--
-	Powered by <a href='https://github.com/leandrosardi/blackstack' target='_window'>BlackStack</a>.
-	-->
+	<b><%=APP_NAME%></b>, version <a href='<%-APP_URL%>' target='_window'><%=WORKMESH_VERSION.to_s%></a><br/>
 	<a href="#" class="pull-right" id="on-top-link">
 		On Top&nbsp;<i class=" icon-chevron-up"></i>
-	</a><br/>
+	</a>
+	<br/>
 	<%
 	if SANDBOX
 	%>

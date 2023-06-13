@@ -153,3 +153,16 @@ end
 get '/dashboard', :agent => /(.*)/ do
   erb :'views/dashboard', :layout => :'/views/layouts/public'
 end
+
+# access points
+post '/api/1.0/ping.json', :api_key => true, :agent => /(.*)/ do
+  erb :'views/api1.0/ping'
+end
+
+post '/api/1.0/version.json', :api_key => true, :agent => /(.*)/ do
+  erb :'views/api1.0/version'
+end
+
+post '/api/1.0/workload.json', :api_key => true, :agent => /(.*)/ do
+  erb :'views/api1.0/workload'
+end

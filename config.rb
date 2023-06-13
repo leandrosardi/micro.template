@@ -12,6 +12,7 @@
 #
 
 APP_NAME = 'micro.dfyl.appending'
+APP_URL = 'https://github.com/ConnectionSphere/micro.dfyl.appending'
 
 # This is the api key to call the access points of the micro-service.
 API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
@@ -61,3 +62,8 @@ BlackStack::Pampa.add_nodes(
     },
   ]
 )
+
+# TODO: return the value of pending tasks in this micro-service, for doing a load balancing.
+def pending_tasks
+  0
+end
