@@ -26,7 +26,7 @@ DB = BlackStack::PostgreSQL::connect
 
 # 
 puts '
-__     __     ______     ______     __  __        __    __     ______     ______     __  __    
+ __     __     ______     ______     __  __        __    __     ______     ______     __  __    
 /\ \  _ \ \   /\  __ \   /\  == \   /\ \/ /       /\ "-./  \   /\  ___\   /\  ___\   /\ \_\ \   
 \ \ \/ ".\ \  \ \ \/\ \  \ \  __<   \ \  _"-.     \ \ \-./\ \  \ \  __\   \ \___  \  \ \  __ \  
  \ \__/".~\_\  \ \_____\  \ \_\ \_\  \ \_\ \_\     \ \_\ \ \_\  \ \_____\  \/\_____\  \ \_\ \_\ 
@@ -66,12 +66,7 @@ set :views, Proc.new { File.join(root) }
 
 # page not found redirection
 not_found do
-  if !logged_in?
-    redirect '/'
-  else
-    redirect '/404'
-  end
-  #redirect "/404?url=#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}#{CGI::escape(request.path_info)}"
+  redirect '/404'
 end
 
 # unhandled exception redirectiopn
@@ -149,4 +144,12 @@ end
 
 get '/500', :agent => /(.*)/ do
   erb :'views/500', :layout => :'/views/layouts/public'
+end
+
+# dashboard
+get '/', :agent => /(.*)/ do
+  redirect '/dashboard'
+end
+get '/dashboard', :agent => /(.*)/ do
+  erb :'views/dashboard', :layout => :'/views/layouts/public'
 end

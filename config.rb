@@ -5,10 +5,13 @@
 # Never push the file to the repository.
 # Be sure this file is always included in the .gitignore file.
 #
-# To save config.rb and other critical files like  and  files,
-# use the command . This will create a backup of the current
+# To save config.rb and other critical files,
+# 
+# use the command `backup.rb`. This will create a backup of the current
 # files into a cloud storage specified by you.
 #
+
+APP_NAME = 'micro.dfyl.appending'
 
 # This is the api key to call the access points of the micro-service.
 API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
