@@ -7,11 +7,26 @@
 # ignore ngrok command
 ngrok
 
+# ignore SSL certificates, except development certificated stored on /ssl/_desa/
+/ssl/prod.crt
+/ssl/prod.key
+/ssl/*/*
+!/ssl/_desa/*
+
 # igonore the backups of the configuration files
+config.rb
 config.*.rb
 config.prod*.rb
 config.backup*.rb
 !config.template.rb
+
+# ignore private key files for accessign servers via SSH
+*.ppk
+*.pem
+
+# ignore certificates for installing CockroachDB nodes
+ca.crt
+ca.key
 
 # ignore lock files
 *.lock
@@ -26,8 +41,12 @@ config.backup*.rb
 # ignore .maintenance file used to turn the app unavailable
 .maintenance
 
+
 # backup files
 *.bak 
 
 # PID files
 *.pid
+
+# ignore google-api access tokens
+*.token.yaml
