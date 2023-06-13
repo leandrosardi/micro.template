@@ -17,6 +17,10 @@ APP_URL = 'https://github.com/ConnectionSphere/micro.dfyl.appending'
 # This is the api key to call the access points of the micro-service.
 API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
 
+# LeadHype Credentials
+LEADHYPE_EMAIL = 'leandro@connectionsphere.com'
+LEADHYPE_PASSWORD = 'SantaClara123'
+
 # setting up breakpoints for backend processes.
 # enabling/disabling the flag  will enable/disable the function 
 BlackStack::Debugging::set({
@@ -96,7 +100,104 @@ def pending_tasks
 end
 
 # Pampa: order.submit
+BlackStack::Pampa.add_job({
+  :name => 'order.submit',
+
+  # Maximum number of tasks that a worker must have in queue.
+  # Default: 5
+  :queue_size => 10, 
+  
+  # If the number of pending tasks is higher than this threshold, 
+  # more workers will be attached to this job.
+  #
+  # One worker can handle 100 tasks alone.
+  # 
+  :max_pending_tasks => 1,
+
+  # Maximum number of workers attached to this job.
+  :max_assigned_workers => 100,
+
+  # specify the nodes or workers that will be assigned to this job.
+  # default: /.*/g
+  :filter_worker_id => /\.([1-9]|1[0-5])$/, # only 1 worker per server will hanlde the indexes
+
+  # Maximum number of minutes that a task should take to process.
+  # If a tasks didn't finish X minutes after it started, it is restarted and assigned to another worker.
+  # Default: 15
+  :max_job_duration_minutes => 5, 
+
+  # Maximum number of times that a task can be restarted.
+  # Default: 3
+  :max_try_times => 3,
+
+  # Define the tasks table: each record is a task.
+  # The tasks table must have some specific fields for handling the tasks dispatching.
+  :table => :order, # Note, that we are sending a class object here
+  :field_primary_key => :id,
+  :field_id => :submit_reservation_id,
+  :field_time => :submit_reservation_time, 
+  :field_times => :submit_reservation_times,
+  :field_start_time => :submit_start_time,
+  :field_end_time => :submit_end_time,
+  :field_success => :submit_success,
+  :field_error_description => :submit_error_description,
+
+  # Function to execute for each task.
+  :processing_function => Proc.new do |task, l, job, worker, *args|
+    o = BlackStack::MicroDfylAppending::Order.where(:id=>task[:id]).first
+    o.submit
+  end
+}) # end of job descriptor
+
 # Pampa: order.ingest
+BlackStack::Pampa.add_job({
+  :name => 'order.ingest',
+
+  # Maximum number of tasks that a worker must have in queue.
+  # Default: 5
+  :queue_size => 10, 
+  
+  # If the number of pending tasks is higher than this threshold, 
+  # more workers will be attached to this job.
+  #
+  # One worker can handle 100 tasks alone.
+  # 
+  :max_pending_tasks => 1,
+
+  # Maximum number of workers attached to this job.
+  :max_assigned_workers => 100,
+
+  # specify the nodes or workers that will be assigned to this job.
+  # default: /.*/g
+  :filter_worker_id => /\.([1-9]|1[0-5])$/, # only 1 worker per server will hanlde the indexes
+
+  # Maximum number of minutes that a task should take to process.
+  # If a tasks didn't finish X minutes after it started, it is restarted and assigned to another worker.
+  # Default: 15
+  :max_job_duration_minutes => 5, 
+
+  # Maximum number of times that a task can be restarted.
+  # Default: 3
+  :max_try_times => 3,
+
+  # Define the tasks table: each record is a task.
+  # The tasks table must have some specific fields for handling the tasks dispatching.
+  :table => :order, # Note, that we are sending a class object here
+  :field_primary_key => :id,
+  :field_id => :ingest_reservation_id,
+  :field_time => :ingest_reservation_time, 
+  :field_times => :ingest_reservation_times,
+  :field_start_time => :ingest_start_time,
+  :field_end_time => :ingest_end_time,
+  :field_success => :ingest_success,
+  :field_error_description => :ingest_error_description,
+
+  # Function to execute for each task.
+  :processing_function => Proc.new do |task, l, job, worker, *args|
+    o = BlackStack::MicroDfylAppending::Order.where(:id=>task[:id]).first
+    o.ingest
+  end
+}) # end of job descriptor
 
 # Pampa: leadhype_row.import
 BlackStack::Pampa.add_job({

@@ -57,6 +57,66 @@ module BlackStack
                 self.save
             end # def verify
 
+            def pushback(l=nil)
+                l = BlackStack::DummyLogger.new(nil) if l.nil?
+
+                # build the hash descriptor of the lead
+                l.logs 'Build lead descriptor... '
+                h = {
+                    'name' => "#{self.first_name} #{self.last_name}",
+                    'position' => self.job_position,   
+                    'company' => {},
+                    'location' => self.location,
+                    'datas' => [],       
+                }
+
+                h['company'] = {
+                    'name' => self.company_name,
+                    'url' => self.company_url,
+                } if !self.company_name.to_s.empty?
+
+                h['datas'] << {
+                    'type' => 20,
+                    'value' => self.email1,
+                    'db_status' => self.db_result1,
+                } if !self.email1.to_s.empty?
+                    
+                h['datas'] << {
+                    'type' => 20,
+                    'value' => self.email2,
+                    'db_status' => self.db_result2,
+                } if !self.email2.to_s.empty?
+                    
+                h['datas'] << {
+                    'type' => 90,
+                    'value' => self.linkedin_url,
+                } if !self.linkedin_url.to_s.empty?
+                l.done
+
+                # build params
+                l.logs 'Build params... '
+                params = {
+                    'id_order' => self.id,
+                    'lead' => h.to_json,
+                }
+                l.done
+
+                # call the API
+                l.logs 'Call the API... '
+                begin
+                    res = BlackStack::Netting::call_post(url, params)
+                    parsed = JSON.parse(res.body)
+                    raise parsed['status'] if parsed['status']!='success'
+                    l.logf parsed.to_s.green
+                rescue Errno::ECONNREFUSED => e
+                    l.logf "Error: #{e.message}".red
+                    raise "Errno::ECONNREFUSED:" + e.message
+                rescue => e2
+                    l.logf "Error: #{e.message}".red
+                    raise "Exception:" + e2.message
+                end
+            end # def pushback
+
         end # class LeadHypeRow
     end # module MicroDfylAppending
 end # module BlackStack
