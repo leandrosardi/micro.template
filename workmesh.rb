@@ -21,6 +21,7 @@ require 'pampa'
 
 # additional blackstack libraries for this project
 require 'leadhypebot'
+require 'appending'
 
 # Default login and signup screens.
 # 
