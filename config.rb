@@ -10,6 +10,9 @@
 # files into a cloud storage specified by you.
 #
 
+# This is the api key to call the access points of the micro-service.
+API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
+
 # setting up breakpoints for backend processes.
 # enabling/disabling the flag  will enable/disable the function 
 BlackStack::Debugging::set({
