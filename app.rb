@@ -23,8 +23,8 @@ parser = BlackStack::SimpleCommandLineParser.new(
 require parser.value('config')
 require 'version'
 DB = BlackStack::CRDB::connect
-require 'lib/skeletons'
 
+# 
 puts '
 __     __     ______     ______     __  __        __    __     ______     ______     __  __    
 /\ \  _ \ \   /\  __ \   /\  == \   /\ \/ /       /\ "-./  \   /\  ___\   /\  ___\   /\ \_\ \   
@@ -63,15 +63,6 @@ set :protection, false
 # reference: https://stackoverflow.com/questions/69028408/change-sinatra-views-directory-location
 set :root,  File.dirname(__FILE__)
 set :views, Proc.new { File.join(root) }
-
-# Setting the public directory of MySaaS, and the public directories of all the extensions.
-# Public folder is where we store the files who are referenced from HTML (images, CSS, JS, fonts).
-# reference: https://stackoverflow.com/questions/18966318/sinatra-multiple-public-directories
-# reference: https://github.com/leandrosardi/mysaas/issues/33
-use Rack::TryStatic, :root => 'public', :urls => %w[/]
-BlackStack::Extensions.extensions.each { |e|
-  use Rack::TryStatic, :root => "extensions/#{e.name.downcase}/public", :urls => %w[/]
-}
 
 # page not found redirection
 not_found do

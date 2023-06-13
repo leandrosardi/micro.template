@@ -30,35 +30,6 @@ BlackStack::CRDB::set_db_params({
   :db_password => 'sCOcdW94_NTJ8C6Swq6APA',
 })
 
-# Setup connection to the API, in order get bots requesting and pushing data to the database.
-# TODO: write your API-Key here. Refer to this article about how to create your API key:
-# https://sites.google.com/expandedventure.com/knowledge/
-#
-# TODO: Switch back to HTTPS when the emails.leads.uplaod.ingest process is migrated to DropBox for elastic storage.
-# 
-BlackStack::API::set_api_url({
-  # IMPORTANT: It is strongly recommended that you 
-  # use the api_key of an account with prisma role, 
-  # and assigned to the central division too.
-  :api_key => '118f3c32-c920-40c0-a938-22b7471f8d20', 
-  # IMPORTANT: It is stringly recommended that you 
-  # write the URL of the central division here. 
-  :api_protocol => SANDBOX ? 'http' : 'https',
-  # IMPORTANT: Even if you are running process in our LAN, 
-  # don't write a LAN IP here, since bots are designed to
-  # run anywhere worldwide.
-  #
-  # IMPORTANT: This is the only web-node where files are 
-  # being stored. Never change this IP by the TLD.
-  # References: 
-  # - https://github.com/leandrosardi/leads/issues/110
-  # - https://github.com/leandrosardi/emails/issues/142
-  # 
-  :api_domain => SANDBOX ? '127.0.0.1' : '54.157.239.98', 
-  :api_port => SANDBOX ? '3000' : '443',
-  :api_less_secure_port => '3000',
-})
-
 # Pampa configuration
 BlackStack::Pampa.set_connection_string( BlackStack::CRDB.connection_string )
 BlackStack::Pampa.set_log_filename('dispatcher.log')
@@ -82,7 +53,7 @@ BlackStack::Pampa.add_nodes(
         # name of the LAN interface
         :laninterface => 'eth0',
         # config.rb content - always using dev-environment here
-        :config_rb_content => File.read(SANDBOX ? '/home/leandro/code/mysaas/config.rb' : '$HOME/code/mysaas/config.rb'),
+        :config_rb_content => File.read(SANDBOX ? '/home/leandro/code/micro.dfyl.appending/config.rb' : '$HOME/code/micro.dfyl.appending/config.rb'),
         # deployment routine for this node
         :deployment_routine => 'deploy-mysaas',
     },
