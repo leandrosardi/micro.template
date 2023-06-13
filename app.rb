@@ -22,7 +22,7 @@ parser = BlackStack::SimpleCommandLineParser.new(
 #
 require parser.value('config')
 require 'version'
-DB = BlackStack::CRDB::connect
+DB = BlackStack::PostgreSQL::connect
 
 # 
 puts '

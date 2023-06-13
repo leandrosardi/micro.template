@@ -39,20 +39,19 @@ DEFAULT_SIGNUP = '/leads/signup'
 #
 SANDBOX = File.exists?('./.sandbox')
 
-# TODO: move the CRDB module to a gem
+# TODO: move the PostgreSQL module to a gem
 module BlackStack
-    module CRDB
+    module PostgreSQL
         # database connection parameters
         @@db_url = nil
         @@db_port = nil
-        @@db_cluster = nil
         @@db_name = nil
         @@db_user = nil
         @@db_password = nil
 
         # return the connection string for a postgresql database
         def self.connection_string
-            "postgresql://#{@@db_user}:#{@@db_password}@#{@@db_url}:#{@@db_port}/#{@@db_cluster}.#{@@db_name}?sslmode=verify-full"
+            "postgresql://#{@@db_user}:#{@@db_password}@#{@@db_url}:#{@@db_port}/#{@@db_name}"
         end # connection_string
 
         # return the connection string for a postgresql database
@@ -62,7 +61,7 @@ module BlackStack
 
         # create database connection
         def self.connect
-            Sequel.connect(BlackStack::CRDB.connection_string)
+            Sequel.connect(BlackStack::PostgreSQL.connection_string)
         end
 
         # database connection getters
@@ -150,12 +149,12 @@ module BlackStack
             @db = nil
 
             #l.log "Connection String:"
-            #l.log BlackStack::CRDB::connection_string
+            #l.log BlackStack::PostgreSQL::connection_string
             
             l.logs "Testing connection... "
             begin
                 @db = BlackStack::Deployer::DB::connect(
-                    BlackStack::CRDB::connection_string # use the connection parameters setting in ./config.rb
+                    BlackStack::PostgreSQL::connection_string # use the connection parameters setting in ./config.rb
                 )
                 l.logf "success"
             rescue => e
@@ -168,7 +167,7 @@ module BlackStack
             begin
                 l.logs "Verify database name... "
                 s = @db["SHOW DATABASES"].first.to_s
-                raise 'Wrong database name' if s !~ /:database_name=>\"#{Regexp.escape(BlackStack::CRDB::db_name)}\"/i
+                raise 'Wrong database name' if s !~ /:database_name=>\"#{Regexp.escape(BlackStack::PostgreSQL::db_name)}\"/i
                 l.logf "success"
             rescue => e
                 l.logf "failed"
@@ -176,15 +175,15 @@ module BlackStack
             end
         end
 
-    end # module CRDB
+    end # module PostgreSQL
 end # module BlackStack
 
 # return a postgresql uuid
 def guid()
-    BlackStack::CRDB::guid
+    BlackStack::PostgreSQL::guid
 end
             
 # return current datetime with format `YYYY-MM-DD HH:MM:SS`
 def now()
-    BlackStack::CRDB::now
+    BlackStack::PostgreSQL::now
 end

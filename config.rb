@@ -21,17 +21,16 @@ BlackStack::Debugging::set({
 
 # DB ACCESS - KEEP IT SECRET
 # Connection string to the demo database: export DATABASE_URL='postgresql://demo:<ENTER-SQL-USER-PASSWORD>@free-tier14.aws-us-east-1.cockroachlabs.cloud:26257/mysaas?sslmode=verify-full&options=--cluster%3Dmysaas-demo-6448'
-BlackStack::CRDB::set_db_params({ 
-  :db_url => 'free-tier14.aws-us-east-1.cockroachlabs.cloud', # always working with production database 
-  :db_port => '26257', 
-  :db_cluster => 'blackstack-4545', # this parameter is optional. Use this when using CRDB serverless.
-  :db_name => 'blackstack', 
+BlackStack::PostgreSQL::set_db_params({ 
+  :db_url => 'localhost', # always working with production database 
+  :db_port => '5432', 
+  :db_name => 'ms.dfyl.appending', 
   :db_user => 'blackstack', 
-  :db_password => 'sCOcdW94_NTJ8C6Swq6APA',
+  :db_password => 'SantaClara123',
 })
 
 # Pampa configuration
-BlackStack::Pampa.set_connection_string( BlackStack::CRDB.connection_string )
+BlackStack::Pampa.set_connection_string( BlackStack::PostgreSQL.connection_string )
 BlackStack::Pampa.set_log_filename('dispatcher.log')
 BlackStack::Pampa.set_integrate_with_blackstack_deployer true
 BlackStack::Pampa.set_config_filename 'config.rb'
