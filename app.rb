@@ -10,7 +10,7 @@ parser = BlackStack::SimpleCommandLineParser.new(
     :mandatory=>false, 
     :description=>'Listening port.', 
     :type=>BlackStack::SimpleCommandLineParser::INT,
-    :default => 3001,
+    :default => 3000,
   }, {
     :name=>'config', 
     :mandatory=>false, 
