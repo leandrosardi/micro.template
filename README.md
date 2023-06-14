@@ -2,7 +2,7 @@ This project is a template for the development of any micro-service.
 
 # Getting Started
 
-Fork this project and:
+Create a new project using this one as a template, and then:
 
 1. Replace `micro.template` by the name of your micro-service (e.g.: `micro.payments-processing`)
 
