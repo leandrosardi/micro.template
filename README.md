@@ -1,8 +1,10 @@
 This project is a template for the development of any micro-service.
 
+# Getting Started
+
 Fork this project and:
 
-1. Replace `micro.<micro-service-name>` by the name of your micro-service (e.g.: `micro.payments-processing`)
+1. Replace `micro.template` by the name of your micro-service (e.g.: `micro.payments-processing`)
 
 2. Write your **postgres** script for DDL installtion in the file `/sql/0.ddl.sql`.
 
@@ -16,15 +18,19 @@ Fork this project and:
 
 7. Require your additional gems in `/workmesh.rb`
 
+8. Follow the steps below to install your local environment.
+
+-----
+
 ![MySaaS Micro-Services Logo](/public/core/images/micro/logo-100.png)
 
-# micro.<micro-service-name>
+# micro.template
 
-The **micro.<micro-service-name>** has been development for the extenalization of the email appending and verificaiton tasks performed by [DFY-Leads](https://github.com/leandrosardi/dfy-leads) 
+The **micro.template** has been development for the extenalization of the email appending and verificaiton tasks performed by [DFY-Leads](https://github.com/leandrosardi/dfy-leads) 
 
 ## 1. Abstract
 
-Why **micro.<micro-service-name>**?
+Why **micro.template**?
 
 ### The Problem
 
@@ -43,7 +49,7 @@ The solution is to distrubute the backend processing into many different nodes (
 
 ## 2. Environment Installation
 
-**micro.<micro-service-name>** has been developed and tested on the following environment:
+**micro.template** has been developed and tested on the following environment:
 
 - Ubuntu 20.04
 - Ruby 3.1.2
@@ -112,7 +118,7 @@ Copy `config.template.rb` as `config.rb` and edit it properly.
 ## Running Micro-Service
 
 ```bash
-cd ~/code/micro.<micro-service-name>
+cd ~/code/micro.template
 ruby start.rb
 ```
 

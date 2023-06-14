@@ -11,8 +11,8 @@
 # files into a cloud storage specified by you.
 #
 
-APP_NAME = 'micro.<micro-service-name>'
-APP_URL = 'https://github.com/ConnectionSphere/micro.<micro-service-name>'
+APP_NAME = 'micro.template'
+APP_URL = 'https://github.com/ConnectionSphere/micro.template'
 
 # This is the api key to call the access points of the micro-service.
 API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
@@ -60,7 +60,7 @@ BlackStack::Pampa.add_nodes(
         # name of the LAN interface
         :laninterface => 'eth0',
         # config.rb content - always using dev-environment here
-        :config_rb_content => File.read(SANDBOX ? '/home/leandro/code/micro.<micro-service-name>/config.rb' : '$HOME/code/micro.<micro-service-name>/config.rb'),
+        :config_rb_content => File.read(SANDBOX ? '/home/leandro/code/micro.template/config.rb' : '$HOME/code/micro.template/config.rb'),
         # deployment routine for this node
         :deployment_routine => 'deploy-mysaas',
     },

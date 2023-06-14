@@ -35,9 +35,13 @@ puts '
  \ \__/".~\_\  \ \_____\  \ \_\ \_\  \ \_\ \_\     \ \_\ \ \_\  \ \_____\  \/\_____\  \ \_\ \_\ 
   \/_/   \/_/   \/_____/   \/_/ /_/   \/_/\/_/      \/_/  \/_/   \/_____/   \/_____/   \/_/\/_/                                                                                                 
 
-Welcome to MySaaS '+WORKMESH_VERSION.green+'.
 
----> '+'https://github.com/ConnectionSphere/micro.<micro-service-name>'.blue+' <---
+Micro-Service Version: '+APP_NAME.green+'.
+Micro-Service Version: '+MY_VERSION.green+'.
+
+WorkMesh Version: '+WORKMESH_VERSION.green+'.
+
+---> '+'https://github.com/ConnectionSphere/micro.template'.blue+' <---
 
 Sandbox Environment: '+(SANDBOX ? 'yes'.green : 'no'.red)+'.
 
