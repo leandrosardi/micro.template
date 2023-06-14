@@ -26,6 +26,11 @@ Create a new project using this one as a template, and then:
 
 11. Follow the steps below to install your local environment.
 
+
+Also, 
+
+12. [How to pull changes from a template repository](https://stackoverflow.com/questions/56577184/github-pull-changes-from-a-template-repository)
+
 -----
 
 ![MySaaS Micro-Services Logo](/public/core/images/micro/logo-100.png)
