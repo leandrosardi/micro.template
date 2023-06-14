@@ -32,7 +32,7 @@ BlackStack::Debugging::set({
 BlackStack::PostgreSQL::set_db_params({ 
   :db_url => 'localhost', # always working with production database 
   :db_port => '5432', 
-  :db_name => 'ms.dfyl.appending', 
+  :db_name => 'micro.template', 
   :db_user => 'blackstack', 
   :db_password => 'SantaClara123',
 })

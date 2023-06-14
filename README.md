@@ -18,7 +18,9 @@ Fork this project and:
 
 7. Require your additional gems in `/workmesh.rb`
 
-8. Follow the steps below to install your local environment.
+8. Copy the file `config.template.rb` as `config.rb` and edit it.
+
+9. Follow the steps below to install your local environment.
 
 -----
 
@@ -62,7 +64,7 @@ Follow the steps in this section to install the the environment for running the 
 On a `bash` terminal, run the commands below for for installing the environment:
 
 ```bash
-wget https://raw.githubusercontent.com/ConnectionSphere/ms.dfyl.appending/main/install.sh
+wget https://raw.githubusercontent.com/ConnectionSphere/micro.template/main/install.sh
 bash install.sh
 ```
 
