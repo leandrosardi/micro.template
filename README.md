@@ -20,7 +20,11 @@ Fork this project and:
 
 8. Copy the file `config.template.rb` as `config.rb` and edit it.
 
-9. Follow the steps below to install your local environment.
+9. Define [Pampa](https://github.com/leandrosardi/pampa) in the `config.rb` file, in order to run multi-threaded processing.
+
+10. Write documentation of your access points and protocol in the last section (Access Points).
+
+11. Follow the steps below to install your local environment.
 
 -----
 
@@ -119,13 +123,29 @@ Copy `config.template.rb` as `config.rb` and edit it properly.
 
 ## 4. Running Micro-Service
 
+Run the listener.
+
 ```bash
 cd ~/code/micro.template
 ruby app.rb
 ```
 
-_TODO: Add code to run listenr, dispatcher and workers in background__
+Run the [Pampa](https://github.com/leandrosardi/pampa) dispatcher.
 
-## 5. Access Ponts
+```bash
+cd ~/code/micro.template/p
+ruby dispatcher.rb
+```
+
+Run the [Pampa](https://github.com/leandrosardi/pampa) worker.
+
+```bash
+cd ~/code/micro.template/p
+ruby worker.rb id=localhost.1
+```
+
+_NOTE: It is pending to add a command for running listenr, dispatcher and workers in background_
+
+## 5. Access Points
 
 _TODO: Write documentation the specific access points of your micro-service here._ 
