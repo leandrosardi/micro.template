@@ -34,7 +34,7 @@ The **micro.template** has been development for the extenalization of the email 
 
 Why **micro.template**?
 
-### The Problem
+### 1.1. The Problem
 
 As a [MySaaS](https://github.com/leandrosardi/mysaas) extension, DFY-Leads works over a [serverless CockroachDB instance](https://www.cockroachlabs.com/serverless/).
 
@@ -44,7 +44,7 @@ Even if the [Pampa](https://github.com/leandrosardi/pampa) architecture can scal
 
 ![CockroachDB Expenses](/public/core/images/micro/crdb1.png)
 
-### The Solution
+### 1.2. The Solution
 
 The solution is to distrubute the backend processing into many different nodes (servers), each one running its own instance of [PostgreSQL](https://www.postgresql.org
 ).
@@ -117,13 +117,15 @@ Copy `config.template.rb` as `config.rb` and edit it properly.
 - Find the DDL in the file `/sql/0.ddl.sql`.
 - Find the seed data in the file `/sql/1.seed.sql`.
 
-## Running Micro-Service
+## 4. Running Micro-Service
 
 ```bash
 cd ~/code/micro.template
-ruby start.rb
+ruby app.rb
 ```
 
-## Access Ponts
+_TODO: Add code to run listenr, dispatcher and workers in background__
+
+## 5. Access Ponts
 
 _TODO: Write documentation the specific access points of your micro-service here._ 
