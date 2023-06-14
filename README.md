@@ -1,14 +1,30 @@
-**>> THIS PROJECT IS UNDER CONSTRUCTION <<**
+This project is a template for the development of any micro-service.
+
+Fork this project and:
+
+1. Replace `micro.<micro-service-name>` by the name of your micro-service (e.g.: `micro.payments-processing`)
+
+2. Write your **postgres** script for DDL installtion in the file `/sql/0.ddl.sql`.
+
+3. Write your **postgres** script for inserting seed data in the file `/sql/1.seed.sql`.
+
+4. Add your [Sequel](https://sequel.jeremyevans.net/) classes in the folder `/models/skeletons`.
+
+5. Edit the file `/lib/skeletons.rb` requiring all the files in the folder `/models/skeletons`.
+
+6. Add your additonal required gems in the `Gemfile`.
+
+7. Require your additional gems in `/workmesh.rb`
 
 ![MySaaS Micro-Services Logo](/public/core/images/micro/logo-100.png)
 
-# DFY-Leads Appending Micro-Service
+# micro.<micro-service-name>
 
-The **DFY-Leads Appending Micro-Service** (or **micro.dfyl.apppenidng**) has been development for the extenalization of the email appending and verificaiton tasks performed by [DFY-Leads](https://github.com/leandrosardi/dfy-leads) 
+The **micro.<micro-service-name>** has been development for the extenalization of the email appending and verificaiton tasks performed by [DFY-Leads](https://github.com/leandrosardi/dfy-leads) 
 
 ## 1. Abstract
 
-Why **micro.dfyl.appending**?
+Why **micro.<micro-service-name>**?
 
 ### The Problem
 
@@ -27,7 +43,7 @@ The solution is to distrubute the backend processing into many different nodes (
 
 ## 2. Environment Installation
 
-**micro.dfyl.appending** has been developed and tested on the following environment:
+**micro.<micro-service-name>** has been developed and tested on the following environment:
 
 - Ubuntu 20.04
 - Ruby 3.1.2
@@ -86,20 +102,20 @@ git clone https://github.com/ConnectionSphere/micro.dfyl.appedning
 
 ### 3.2. Configuration
 
-
+Copy `config.template.rb` as `config.rb` and edit it properly.
 
 ### 3.3. Database Schema
 
-```bash
-cd ~/code/micro.dfyl.appending
-ruby install.rb
-```
+- Find the DDL in the file `/sql/0.ddl.sql`.
+- Find the seed data in the file `/sql/1.seed.sql`.
 
 ## Running Micro-Service
 
 ```bash
-cd ~/code/micro.dfyl.appending
+cd ~/code/micro.<micro-service-name>
 ruby start.rb
 ```
 
 ## Access Ponts
+
+_TODO: Write documentation the specific access points of your micro-service here._ 

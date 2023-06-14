@@ -1,0 +1,1 @@
+Add Sequel classes in this folder.

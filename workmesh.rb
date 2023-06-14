@@ -20,13 +20,7 @@ require 'blackstack-deployer'
 require 'pampa'
 
 # additional blackstack libraries for this project
-require 'leadhypebot'
-require 'appending'
-
-# Default login and signup screens.
-# 
-DEFAULT_LOGIN = '/login'
-DEFAULT_SIGNUP = '/leads/signup'
+# TODO: requires your gems here
 
 # Is this a development environment?
 # Many features below will be enabled or disabled based on this 

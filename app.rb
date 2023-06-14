@@ -37,7 +37,7 @@ puts '
 
 Welcome to MySaaS '+WORKMESH_VERSION.green+'.
 
----> '+'https://github.com/ConnectionSphere/micro.dfyl.appending'.blue+' <---
+---> '+'https://github.com/ConnectionSphere/micro.<micro-service-name>'.blue+' <---
 
 Sandbox Environment: '+(SANDBOX ? 'yes'.green : 'no'.red)+'.
 

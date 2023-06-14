@@ -1,2 +1,1 @@
-require 'models/skeleton/order'
-require 'models/skeleton/leadhyperow'
+# TODO: Require all the files in the skeletons directory.
