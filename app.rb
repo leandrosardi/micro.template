@@ -36,7 +36,7 @@ puts '
   \/_/   \/_/   \/_____/   \/_/ /_/   \/_/\/_/      \/_/  \/_/   \/_____/   \/_____/   \/_/\/_/                                                                                                 
 
 
-Micro-Service Version: '+APP_NAME.green+'.
+Micro-Service Name: '+APP_NAME.green+'.
 Micro-Service Version: '+MY_VERSION.green+'.
 
 WorkMesh Version: '+WORKMESH_VERSION.green+'.
