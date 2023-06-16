@@ -15,7 +15,8 @@ APP_NAME = 'micro.template'
 APP_URL = 'https://github.com/ConnectionSphere/micro.template'
 
 # the URL where to pull results from the micro-service.
-MASTER_URL = 'https://connectionsphere.com'
+MASTER_URL = SANDBOX ? 'http://127.0.0.1:3000' : 'https://connectionsphere.com'
+MASTER_API_KEY = '*****'
 
 # This is the api key to call the access points of the micro-service.
 API_KEY = '118f3c32-c920-40c0-a938-22b7471f8d20'
