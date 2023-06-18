@@ -106,6 +106,44 @@ And then run this **postgres** command to assign a new password to the **blackst
 \password blackstack
 ```
 
+### 2.4. Accepting Incoming Connections
+
+```bash
+cd /etc/postgresql/9.x/main/
+```
+
+Open file named `postgresql.conf`,
+
+```bash
+sudo nano postgresql.conf
+```
+
+and add this line to that file
+
+```
+listen_addresses = '*'
+```
+
+Then open file named `pg_hba.conf`,
+
+```bash
+sudo vi pg_hba.conf
+```
+
+and add this line to that file:
+
+```
+host  all  all 0.0.0.0/0 md5
+```
+
+It allows access to all databases for all users with an encrypted password.
+
+Finally, restart your server
+
+```
+sudo /etc/init.d/postgresql restart
+```
+
 ## 3. Service Installation
 
 Follow the steps in this section to install the micro-service and run it.

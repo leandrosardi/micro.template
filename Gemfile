@@ -9,7 +9,7 @@ gem 'blackstack-nodes', '~>1.2.12'
 gem 'blackstack-deployer', '~>1.2.26'
 gem 'simple_cloud_logging', '~>1.2.2'
 gem 'simple_command_line_parser', '~>1.1.2'
-gem 'pampa', '~>2.0.23'
+gem 'pampa', '~>2.0.27'
 gem 'my-dropbox-api', '~>1.0.1'
 gem 'leadhypebot', '~>1.2'
 
