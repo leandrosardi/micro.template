@@ -125,7 +125,7 @@ module BlackStack
         # `America/Argentina/Buenos_Aires` when I run it from Ruby. Be sure your database is ALWAYS configured with the correct timezone.
         def self.now()
             tz = 'America/Argentina/Buenos_Aires' #DB["SELECT current_setting('TIMEZONE') AS tz"].first[:tz]
-            DB["SELECT current_timestamp() at TIME ZONE '#{tz}' AS now"].first[:now]
+            DB["SELECT current_timestamp at TIME ZONE '#{tz}' AS now"].first[:now]
         end
 
         # test the connection to the database.
