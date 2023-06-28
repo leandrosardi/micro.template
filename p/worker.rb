@@ -74,7 +74,7 @@ begin
     l.done
 
     #require 'config'
-    DB = BlackStack::CRDB::connect
+    DB = BlackStack::PostgreSQL::connect
     require 'lib/skeletons'
 
     # getting the worker object
