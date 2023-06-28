@@ -12,7 +12,7 @@ require 'workmesh'
 #require 'lib/stubs'
 require 'config'
 require 'version'
-DB = BlackStack::CRDB::connect
+DB = BlackStack::PostgreSQL::connect
 require 'lib/skeletons'
 
 # parse command line parameters
