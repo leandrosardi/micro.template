@@ -136,6 +136,12 @@ and add this line to that file:
 host  all  all 0.0.0.0/0 md5
 ```
 
+Also, increase the number of max allowed connections:
+
+```
+max_connections = 250
+```
+
 It allows access to all databases for all users with an encrypted password.
 
 Finally, restart your server
